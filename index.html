@@ -22,12 +22,12 @@
   ══════════════════════════════ */
   :root {
     --bg:       #FFFFFF;
-    --carbon:   #1A1A1A;
+    --carbon:   #0D0D0D;
     --gold:     #D4AF37;
     --gold-dk:  #8B7355;
     --lavender: #3A4F6B;
     --lav-lt:   #D6DDE8;
-    --muted:    #4A5568;
+    --muted:    #2D3748;
     --line:     rgba(180,190,210,.30);
     --splash-top: #C8D3E4;
     --splash-mid: #D8E2EE;
@@ -158,8 +158,8 @@
 
   .cover-names {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 7vw, 28px);
-    font-weight: 400;
+    font-size: clamp(24px, 7vw, 32px);
+    font-weight: 700;
     letter-spacing: .08em;
     color: var(--carbon);
     line-height: 1.3;
@@ -168,18 +168,18 @@
   .cover-amp {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 18px;
-    color: var(--muted);
+    font-size: 20px;
+    color: #3A4F6B;
     letter-spacing: .12em;
     margin: 4px 0;
   }
   .cover-date {
     margin-top: 20px;
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: .5em;
-    color: var(--muted);
+    color: #1A2A3A;
     text-transform: uppercase;
   }
 
@@ -208,9 +208,9 @@
   .cd-num {
     display: block;
     font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--carbon);
+    font-size: 30px;
+    font-weight: 700;
+    color: #0D0D0D;
     line-height: 1;
   }
   .cd-tag {
@@ -238,9 +238,10 @@
   .verse-text {
     font-family: 'Cormorant Garant', serif;
     font-style: italic;
-    font-size: 17px;
+    font-size: 19px;
+    font-weight: 600;
     line-height: 1.75;
-    color: var(--carbon);
+    color: #0D0D0D;
     padding: 0 8px;
   }
   .verse-text::before, .verse-text::after {
@@ -271,9 +272,9 @@
   }
   .parents-names {
     font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--carbon);
+    font-size: 16px;
+    font-weight: 600;
+    color: #0D0D0D;
     line-height: 2;
   }
   .parents-div {
@@ -305,16 +306,17 @@
   }
   .loc-type {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--carbon);
+    font-size: 20px;
+    font-weight: 700;
+    color: #0D0D0D;
     margin-bottom: 4px;
   }
   .loc-name {
     font-family: 'Cormorant Garant', serif;
     font-style: italic;
-    font-size: 14px;
-    color: var(--muted);
+    font-size: 15px;
+    font-weight: 600;
+    color: #2D3748;
     line-height: 1.5;
     margin-bottom: 20px;
   }
@@ -352,9 +354,9 @@
   .tl-title {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--carbon);
+    font-size: 42px;
+    font-weight: 700;
+    color: #0D0D0D;
     text-align: center;
     margin-bottom: 48px;
     letter-spacing: -.01em;
@@ -374,24 +376,27 @@
     width: 1px;
     background: linear-gradient(to bottom, transparent 0%, rgba(58,79,107,.4) 8%, rgba(58,79,107,.4) 92%, transparent 100%);
   }
-  .tl2-row {
+    .tl2-row {
     display: grid;
-    grid-template-columns: 1fr 24px 1fr;
+    grid-template-columns: 1fr 28px 1fr;
     align-items: center;
     width: 100%;
-    min-height: 88px;
+    min-height: 104px;
     position: relative;
+    border-radius: 12px;
+    padding: 4px 0;
   }
   .tl2-dot {
-    width: 9px; height: 9px;
+    width: 13px; height: 13px;
     border-radius: 50%;
-    background: var(--bg);
-    border: 1.5px solid rgba(58,79,107,.6);
+    background: #fff;
+    border: 2.5px solid #3A4F6B;
     justify-self: center;
     z-index: 1;
+    box-shadow: 0 0 0 4px rgba(58,79,107,.12);
   }
-  .tl2-left  { text-align: right;  padding: 14px 16px 14px 0; }
-  .tl2-right { text-align: left;   padding: 14px 0 14px 16px; }
+  .tl2-left  { text-align: right;  padding: 18px 20px 18px 0; }
+  .tl2-right { text-align: left;   padding: 18px 0 18px 20px; }
   .tl2-empty { }
   .tl2-time {
     font-family: 'Playfair Display', serif;
@@ -410,44 +415,60 @@
     display: block;
   }
   .tl2-icon { display: flex; margin-bottom: 6px; }
-  .tl2-left .tl2-icon  { justify-content: flex-end; }
-  .tl2-right .tl2-icon { justify-content: flex-start; }
+  .tl2-left .tl2-icon  { justify-content: flex-end; margin-left: auto; }
+  .tl2-right .tl2-icon { justify-content: flex-start; margin-right: auto; }
   .tl2-icon svg {
-    width: 22px; height: 22px;
+    width: 26px; height: 26px;
     stroke: #3A4A5C;
-    stroke-width: 1.4;
+    stroke-width: 1.6;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
 
-  /* ── Colores por evento del itinerario ── */
-  .tl2-row:nth-child(1) .tl2-icon svg { stroke: #7B9E87; }
-  .tl2-row:nth-child(2) .tl2-icon svg { stroke: #8B7BB5; }
-  .tl2-row:nth-child(3) .tl2-icon svg { stroke: #C97D5B; }
-  .tl2-row:nth-child(4) .tl2-icon svg { stroke: #D4AF37; }
-  .tl2-row:nth-child(5) .tl2-icon svg { stroke: #C95A8A; }
-  .tl2-row:nth-child(6) .tl2-icon svg { stroke: #E8A44A; }
-  .tl2-row:nth-child(7) .tl2-icon svg { stroke: #5B8DB5; }
-  .tl2-row:nth-child(8) .tl2-icon svg { stroke: #6B8AAE; }
+  /* ── Colores vibrantes por evento ── */
+  .tl2-row:nth-child(1) .tl2-icon svg { stroke: #fff; }
+  .tl2-row:nth-child(2) .tl2-icon svg { stroke: #fff; }
+  .tl2-row:nth-child(3) .tl2-icon svg { stroke: #fff; }
+  .tl2-row:nth-child(4) .tl2-icon svg { stroke: #fff; }
+  .tl2-row:nth-child(5) .tl2-icon svg { stroke: #fff; }
+  .tl2-row:nth-child(6) .tl2-icon svg { stroke: #fff; }
+  .tl2-row:nth-child(7) .tl2-icon svg { stroke: #fff; }
+  .tl2-row:nth-child(8) .tl2-icon svg { stroke: #fff; }
 
-  .tl2-row:nth-child(1) .tl2-icon { background: rgba(123,158,135,.14); border-color: rgba(123,158,135,.35); }
-  .tl2-row:nth-child(2) .tl2-icon { background: rgba(139,123,181,.14); border-color: rgba(139,123,181,.35); }
-  .tl2-row:nth-child(3) .tl2-icon { background: rgba(201,125,91,.14);  border-color: rgba(201,125,91,.35); }
-  .tl2-row:nth-child(4) .tl2-icon { background: rgba(212,175,55,.14);  border-color: rgba(212,175,55,.35); }
-  .tl2-row:nth-child(5) .tl2-icon { background: rgba(201,90,138,.14);  border-color: rgba(201,90,138,.35); }
-  .tl2-row:nth-child(6) .tl2-icon { background: rgba(232,164,74,.14);  border-color: rgba(232,164,74,.35); }
-  .tl2-row:nth-child(7) .tl2-icon { background: rgba(91,141,181,.14);  border-color: rgba(91,141,181,.35); }
-  .tl2-row:nth-child(8) .tl2-icon { background: rgba(107,138,174,.14); border-color: rgba(107,138,174,.35); }
+  /* Fondos sólidos vibrantes en círculo del ícono */
+  .tl2-row:nth-child(1) .tl2-icon { background: #5F9E7E; border-color: #5F9E7E; box-shadow: 0 4px 14px rgba(95,158,126,.4); }
+  .tl2-row:nth-child(2) .tl2-icon { background: #7B6BB5; border-color: #7B6BB5; box-shadow: 0 4px 14px rgba(123,107,181,.4); }
+  .tl2-row:nth-child(3) .tl2-icon { background: #D4724A; border-color: #D4724A; box-shadow: 0 4px 14px rgba(212,114,74,.4); }
+  .tl2-row:nth-child(4) .tl2-icon { background: #C9A227; border-color: #C9A227; box-shadow: 0 4px 14px rgba(201,162,39,.4); }
+  .tl2-row:nth-child(5) .tl2-icon { background: #C95A8A; border-color: #C95A8A; box-shadow: 0 4px 14px rgba(201,90,138,.4); }
+  .tl2-row:nth-child(6) .tl2-icon { background: #E07B30; border-color: #E07B30; box-shadow: 0 4px 14px rgba(224,123,48,.4); }
+  .tl2-row:nth-child(7) .tl2-icon { background: #3D7DB5; border-color: #3D7DB5; box-shadow: 0 4px 14px rgba(61,125,181,.4); }
+  .tl2-row:nth-child(8) .tl2-icon { background: #4A5F8A; border-color: #4A5F8A; box-shadow: 0 4px 14px rgba(74,95,138,.4); }
 
-  .tl2-row:nth-child(1) .tl2-time { color: #7B9E87; }
-  .tl2-row:nth-child(2) .tl2-time { color: #8B7BB5; }
-  .tl2-row:nth-child(3) .tl2-time { color: #C97D5B; }
-  .tl2-row:nth-child(4) .tl2-time { color: #D4AF37; }
+  /* Horas con color matching vibrante */
+  .tl2-row:nth-child(1) .tl2-time { color: #5F9E7E; }
+  .tl2-row:nth-child(2) .tl2-time { color: #7B6BB5; }
+  .tl2-row:nth-child(3) .tl2-time { color: #D4724A; }
+  .tl2-row:nth-child(4) .tl2-time { color: #C9A227; }
   .tl2-row:nth-child(5) .tl2-time { color: #C95A8A; }
-  .tl2-row:nth-child(6) .tl2-time { color: #E8A44A; }
-  .tl2-row:nth-child(7) .tl2-time { color: #5B8DB5; }
-  .tl2-row:nth-child(8) .tl2-time { color: #6B8AAE; }
+  .tl2-row:nth-child(6) .tl2-time { color: #E07B30; }
+  .tl2-row:nth-child(7) .tl2-time { color: #3D7DB5; }
+  .tl2-row:nth-child(8) .tl2-time { color: #4A5F8A; }
+
+  /* Dot coloreado por evento */
+  .tl2-row:nth-child(1) .tl2-dot { border-color: #5F9E7E; box-shadow: 0 0 0 3px rgba(95,158,126,.2); }
+  .tl2-row:nth-child(2) .tl2-dot { border-color: #7B6BB5; box-shadow: 0 0 0 3px rgba(123,107,181,.2); }
+  .tl2-row:nth-child(3) .tl2-dot { border-color: #D4724A; box-shadow: 0 0 0 3px rgba(212,114,74,.2); }
+  .tl2-row:nth-child(4) .tl2-dot { border-color: #C9A227; box-shadow: 0 0 0 3px rgba(201,162,39,.2); }
+  .tl2-row:nth-child(5) .tl2-dot { border-color: #C95A8A; box-shadow: 0 0 0 3px rgba(201,90,138,.2); }
+  .tl2-row:nth-child(6) .tl2-dot { border-color: #E07B30; box-shadow: 0 0 0 3px rgba(224,123,48,.2); }
+  .tl2-row:nth-child(7) .tl2-dot { border-color: #3D7DB5; box-shadow: 0 0 0 3px rgba(61,125,181,.2); }
+  .tl2-row:nth-child(8) .tl2-dot { border-color: #4A5F8A; box-shadow: 0 0 0 3px rgba(74,95,138,.2); }
+
+  /* Fondo sutil detrás de cada fila */
+  .tl2-row:nth-child(odd)  { background: rgba(255,255,255,.4); border-radius: 12px; }
+  .tl2-row:nth-child(even) { background: rgba(255,255,255,.2); border-radius: 12px; }
 
   /* ══════════════════════════════
      SECTION 5 · GALERÍA — carrusel cinematográfico
@@ -738,8 +759,9 @@
     margin-top: 20px;
     font-family: 'Cormorant Garant', serif;
     font-style: italic;
-    font-size: 13px;
-    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    color: #2D3748;
     line-height: 1.65;
   }
 
@@ -1067,13 +1089,11 @@
     <div class="dresscode-box">
       <div class="dc-group">
         <p class="dc-gender"><span class="dc-icon">👗</span> Mujeres</p>
-        <p class="dc-text">Colores primaverales. Tonos naranja, rosa, verde, amarillo, morado o azul.</p>
-        <p class="dc-alert">⚠ COLORES PROHIBIDOS: Blanco y rojo.</p>
+        <p class="dc-alert">⚠ PROHIBIDO: Blanco y rojo.</p>
       </div>
       <div class="dc-divider"></div>
       <div class="dc-group">
         <p class="dc-gender"><span class="dc-icon">🤵</span> Hombres</p>
-        <p class="dc-text">Traje o pantalón de vestir en el color que prefieran.</p>
         <p class="dc-alert">⚠ PROHIBIDO: Mezclilla, pants y color azul.</p>
       </div>
     </div>
