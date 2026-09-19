@@ -1145,6 +1145,210 @@
     box-shadow: 0 4px 16px rgba(0,0,0,.07);
   }
   .map-embed iframe { display: block; }
+
+  .rsvp-form { margin-bottom: 20px; }
+  .rsvp-field { margin-bottom: 14px; text-align: left; }
+  .rsvp-field label { display:block; font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:#3A4F6B; margin-bottom:6px; }
+  .rsvp-field input, .rsvp-field select { width:100%; padding:13px 16px; border:1.5px solid rgba(58,79,107,.25); border-radius:12px; font-family:'Cormorant Garant',serif; font-size:17px; font-weight:600; color:#0D0D0D; background:rgba(255,255,255,.8); outline:none; transition:border-color .2s; -webkit-appearance:none; appearance:none; }
+  .rsvp-field input:focus, .rsvp-field select:focus { border-color:#3A4F6B; }
+  .rsvp-field input::placeholder { color:rgba(0,0,0,.3); font-style:italic; }
+  .rsvp-btns-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+  .rsvp-btn-small { padding:14px 10px; border:none; border-radius:14px; font-family:'Playfair Display',serif; font-size:14px; font-weight:600; color:#fff; cursor:pointer; transition:filter .2s,transform .1s; }
+  .rsvp-btn-small:active { transform:scale(.97); }
+  .rsvp-btn-small.confirm { background:#C95A8A; }
+  .rsvp-btn-small.decline { background:#DDA15E; }
+  .rsvp-success { display:none; background:rgba(95,158,126,.12); border:1px solid rgba(95,158,126,.4); border-radius:12px; padding:16px; text-align:center; font-family:'Cormorant Garant',serif; font-style:italic; font-size:16px; font-weight:600; color:#3A7A5A; margin-bottom:16px; }
+  .rsvp-success.show { display:block; }
+  .rsvp-table-wrap { margin-top:28px; }
+  .rsvp-table-title { font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:#3A4F6B; margin-bottom:12px; text-align:center; }
+  .rsvp-table { width:100%; border-collapse:collapse; font-family:'Inter',sans-serif; font-size:13px; }
+  .rsvp-table th { background:rgba(58,79,107,.08); padding:10px 12px; text-align:left; font-size:9px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#3A4F6B; border-bottom:1px solid rgba(58,79,107,.15); }
+  .rsvp-table td { padding:10px 12px; border-bottom:1px solid rgba(0,0,0,.06); color:#1A2A3A; vertical-align:middle; }
+  .rsvp-table tr:last-child td { border-bottom:none; }
+  .rsvp-table tr:nth-child(even) td { background:rgba(0,0,0,.02); }
+  .badge-confirm { display:inline-block; background:rgba(201,90,138,.15); color:#C95A8A; border-radius:20px; padding:3px 10px; font-size:11px; font-weight:700; }
+  .badge-decline { display:inline-block; background:rgba(221,161,94,.15); color:#B8822A; border-radius:20px; padding:3px 10px; font-size:11px; font-weight:700; }
+  .rsvp-total { margin-top:12px; text-align:right; font-family:'Inter',sans-serif; font-size:11px; font-weight:700; color:#3A4F6B; }
+  .rsvp-empty { text-align:center; padding:24px; font-family:'Cormorant Garant',serif; font-style:italic; color:var(--muted); font-size:15px; }
+
+
+  /* ── Plano del salón ── */
+  .salon-wrap {
+    margin-top: 32px;
+    background: rgba(255,255,255,.6);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .salon-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #3A4F6B;
+    margin-bottom: 6px;
+  }
+  .salon-subtitle {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .salon-floor {
+    position: relative;
+    background: linear-gradient(135deg, #f8f6f0 0%, #f0ede4 100%);
+    border-radius: 16px;
+    border: 2px solid rgba(58,79,107,.15);
+    padding: 20px 12px 24px;
+    min-height: 280px;
+    overflow: hidden;
+  }
+  /* Pista de baile */
+  .dance-floor {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 44px;
+    background: linear-gradient(135deg, #D4AF37 0%, #E8CC6A 50%, #D4AF37 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.3);
+    box-shadow: 0 3px 10px rgba(212,175,55,.4);
+  }
+  /* Mesa de novios */
+  .novios-table {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #C95A8A, #E8779A);
+    border-radius: 20px;
+    padding: 7px 18px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .1em;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(201,90,138,.4);
+  }
+  /* Mesas de invitados */
+  .guest-tables-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 56px;
+    margin-bottom: 56px;
+    padding: 0 8px;
+  }
+  .mesa {
+    width: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity .4s ease, transform .4s cubic-bezier(.22,.68,0,1.3);
+  }
+  .mesa.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .mesa-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(58,79,107,.2);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+    position: relative;
+  }
+  .mesa-circle.confirmed {
+    background: linear-gradient(135deg, rgba(201,90,138,.12), rgba(201,90,138,.06));
+    border-color: #C95A8A;
+    box-shadow: 0 3px 14px rgba(201,90,138,.25);
+  }
+  .mesa-circle.declined {
+    background: rgba(0,0,0,.04);
+    border-color: rgba(0,0,0,.12);
+    opacity: .55;
+  }
+  /* Sillitas alrededor */
+  .mesa-chairs {
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+  }
+  .chair {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(58,79,107,.25);
+  }
+  .mesa-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    color: #1A2A3A;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 68px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .mesa-count {
+    font-size: 8px;
+    color: #C95A8A;
+    font-weight: 700;
+  }
+  /* Stats */
+  .salon-stats {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .stat-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .stat-confirm { background: rgba(201,90,138,.12); color: #C95A8A; }
+  .stat-decline { background: rgba(221,161,94,.12); color: #B8822A; }
+  .stat-total   { background: rgba(58,79,107,.10);  color: #3A4F6B; }
+
+  /* Loading spinner */
+  .rsvp-loading {
+    display: none;
+    text-align: center;
+    padding: 12px;
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .rsvp-loading.show { display: block; }
+
 </style>
 </head>
 <body>
@@ -1236,8 +1440,21 @@
         </p>
       </div>
 
-      <div style="margin-top:16px;">
-        <p class="parents-role">Padr  <div class="ornament reveal">— ✦ —</div>
+      <div style="width:32px;height:1px;background:var(--line);margin:0 auto 28px;"></div>
+
+      <div style="margin-bottom:8px;">
+        <p class="parents-role">Padrinos de Velación</p>
+        <p class="parents-names">
+          Elia Valle<br>
+          <span class="parents-div">e</span>
+          Isidro Reyes Hernández
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ornament reveal">— ✦ —</div>
   <section id="ubicaciones" class="reveal">
 
     <div class="location-card">
@@ -1282,16 +1499,7 @@
 
   </section>
 
-inos de Velación</p>
-        <p class="parents-names">
-          Elia Valle<br>
-          <span class="parents-div">e</span>
-          Isidro Reyes Hernández
-        </p>
-      </div>
 
-    </div>
-  </section>
 
   <div class="ornament reveal">— ✦ —</div>
   <section id="itinerario" class="reveal">
@@ -1477,14 +1685,59 @@ inos de Velación</p>
   <section id="rsvp" class="reveal">
     <p class="sec-label">Confirmación de Asistencia</p>
     <p class="rsvp-subtitle">Tu presencia es nuestro mayor regalo</p>
-    <a href="https://wa.me/527223134294?text=Hola%20Elizabeth%20y%20Jafet%20%F0%9F%8E%89%20Confirmo%20mi%20asistencia%20a%20su%20boda%20el%205%20de%20diciembre." target="_blank" rel="noopener" class="rsvp-btn confirm">✓ Confirmo asistencia</a>
-    <a href="https://wa.me/527223134294?text=Hola%20Elizabeth%20y%20Jafet%2C%20lamentablemente%20no%20podr%C3%A9%20acompa%C3%B1arlos%20el%205%20de%20diciembre." target="_blank" rel="noopener" class="rsvp-btn decline">✗ No podré acompañarlos</a>
+
+    <div class="rsvp-form">
+      <div class="rsvp-field">
+        <label>Tu nombre completo</label>
+        <input type="text" id="rsvpName" placeholder="Ej. Juan Pérez" maxlength="60">
+      </div>
+      <div class="rsvp-field">
+        <label>Número de personas</label>
+        <select id="rsvpPlaces">
+          <option value="">— Selecciona —</option>
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+          <option value="5">5 personas</option>
+          <option value="6">6 o más</option>
+        </select>
+      </div>
+      <div class="rsvp-btns-row">
+        <button class="rsvp-btn-small confirm" onclick="submitRSVP('confirm')">✓ Asistiré</button>
+        <button class="rsvp-btn-small decline" onclick="submitRSVP('decline')">✗ No podré</button>
+      </div>
+    </div>
+
+    <div class="rsvp-success" id="rsvpSuccess"></div>
+
+    <div class="rsvp-loading" id="rsvpLoading">Guardando confirmación... ✨</div>
+
+    <div class="salon-wrap" id="salonWrap">
+      <p class="salon-title">Plano del Salón</p>
+      <p class="salon-subtitle">Los invitados confirmados aparecen aquí</p>
+
+      <div class="salon-floor" id="salonFloor">
+        <div class="novios-table">💍 Elizabeth &amp; Jafet</div>
+        <div class="guest-tables-grid" id="guestTables">
+          <!-- mesas generadas por JS -->
+        </div>
+        <div class="dance-floor">PISTA</div>
+      </div>
+
+      <div class="salon-stats" id="salonStats" style="display:none;">
+        <span class="stat-pill stat-confirm" id="statConfirm">✓ 0 asisten</span>
+        <span class="stat-pill stat-total"   id="statTotal">0 personas</span>
+        <span class="stat-pill stat-decline" id="statDecline">✗ 0 no asisten</span>
+      </div>
+    </div>
 
     <div class="regalo-wrap">
       <p class="regalo-icon">🎁</p>
       <p class="regalo-text">Nuestro mayor regalo será compartir este día contigo. Si deseas hacernos un presente, agradeceremos tu aportación en nuestra mesa de lluvia de sobres.</p>
     </div>
   </section>
+
 
 </div>
 
@@ -1817,6 +2070,125 @@ inos de Velación</p>
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeModal();
     });
+  })();
+
+  /* RSVP Google Sheets + Plano del salón */
+  (function(){
+    var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxcnOVukzY4PB3YPWYMNaasMTk1zxsJNe-_XFaCT-G63NBuwQ_Wlje0Uz8RsR4Sdxz5/exec';
+    var CHAIR_POSITIONS = [
+      {top:'0%',left:'50%',transform:'translate(-50%,-50%)'},
+      {top:'14%',left:'86%',transform:'translate(-50%,-50%)'},
+      {top:'50%',left:'100%',transform:'translate(-50%,-50%)'},
+      {top:'86%',left:'86%',transform:'translate(-50%,-50%)'},
+      {top:'100%',left:'50%',transform:'translate(-50%,-50%)'},
+      {top:'86%',left:'14%',transform:'translate(-50%,-50%)'},
+      {top:'50%',left:'0%',transform:'translate(-50%,-50%)'},
+      {top:'14%',left:'14%',transform:'translate(-50%,-50%)'}
+    ];
+
+    function getEmoji(name){
+      var emojis = ['🌸','💐','🌺','🌷','✨','💫','🌟','⭐','🎀','🎊','🎈','💝'];
+      var sum = 0;
+      for(var i=0;i<name.length;i++) sum += name.charCodeAt(i);
+      return emojis[sum % emojis.length];
+    }
+
+    function renderSalon(list){
+      var grid  = document.getElementById('guestTables');
+      var stats = document.getElementById('salonStats');
+      var sc    = document.getElementById('statConfirm');
+      var st    = document.getElementById('statTotal');
+      var sd    = document.getElementById('statDecline');
+      if(!grid) return;
+
+      grid.innerHTML = '';
+      var totalPersonas=0, totalConfirm=0, totalDecline=0;
+
+      list.forEach(function(r, i){
+        var isConfirm = r.estado === 'Confirmado';
+        if(isConfirm){ totalPersonas += parseInt(r.lugares)||0; totalConfirm++; }
+        else totalDecline++;
+
+        var mesa = document.createElement('div');
+        mesa.className = 'mesa';
+
+        var chairs = CHAIR_POSITIONS.slice(0, Math.min(parseInt(r.lugares)||1, 8))
+          .map(function(p){
+            return '<div class="chair" style="top:'+p.top+';left:'+p.left+';transform:'+p.transform+'"></div>';
+          }).join('');
+
+        mesa.innerHTML =
+          '<div class="mesa-circle '+(isConfirm?'confirmed':'declined')+'">' +
+            '<div class="mesa-chairs">'+chairs+'</div>' +
+            getEmoji(r.nombre) +
+          '</div>' +
+          '<div class="mesa-name">'+r.nombre.split(' ')[0]+'</div>' +
+          (isConfirm ? '<div class="mesa-count">'+r.lugares+(r.lugares=='1'?' p':' p')+'</div>' : '<div class="mesa-count" style="color:#B8822A">No asiste</div>');
+
+        grid.appendChild(mesa);
+        // Animación escalonada
+        setTimeout(function(){ mesa.classList.add('visible'); }, i * 120);
+      });
+
+      if(stats){
+        stats.style.display = list.length > 0 ? 'flex' : 'none';
+        if(sc) sc.textContent = '✓ '+totalConfirm+' asisten';
+        if(st) st.textContent = totalPersonas+' personas';
+        if(sd) sd.textContent = '✗ '+totalDecline+' no asisten';
+      }
+    }
+
+    function fetchAndRender(){
+      fetch(SHEETS_URL)
+        .then(function(r){ return r.json(); })
+        .then(function(d){ if(d.ok && d.data) renderSalon(d.data); })
+        .catch(function(){});
+    }
+
+    window.submitRSVP = function(status){
+      var nameEl   = document.getElementById('rsvpName');
+      var placesEl = document.getElementById('rsvpPlaces');
+      var success  = document.getElementById('rsvpSuccess');
+      var loading  = document.getElementById('rsvpLoading');
+      var name     = nameEl ? nameEl.value.trim() : '';
+      var places   = placesEl ? placesEl.value : '';
+
+      if(!name){ if(nameEl){ nameEl.style.borderColor='#C95A8A'; nameEl.focus(); } return; }
+      if(status==='confirm' && !places){ if(placesEl){ placesEl.style.borderColor='#C95A8A'; placesEl.focus(); } return; }
+
+      if(loading) loading.classList.add('show');
+
+      var payload = {
+        nombre:  name,
+        lugares: status==='confirm' ? places : '0',
+        estado:  status==='confirm' ? 'Confirmado' : 'No asiste',
+        fecha:   new Date().toLocaleDateString('es-MX')
+      };
+
+      fetch(SHEETS_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(loading) loading.classList.remove('show');
+        var msg = status==='confirm'
+          ? '🎉 ¡Gracias '+name+'! Tu asistencia con '+places+(places=='1'?' persona':' personas')+' ha sido registrada.'
+          : '💛 Gracias '+name+', lamentamos que no puedas acompañarnos.';
+        if(success){ success.textContent=msg; success.classList.add('show'); setTimeout(function(){ success.classList.remove('show'); },5000); }
+        if(nameEl){ nameEl.value=''; nameEl.style.borderColor=''; }
+        if(placesEl){ placesEl.value=''; placesEl.style.borderColor=''; }
+        fetchAndRender();
+      })
+      .catch(function(){
+        if(loading) loading.classList.remove('show');
+        if(success){ success.textContent='⚠️ Error al guardar. Intenta de nuevo.'; success.classList.add('show'); setTimeout(function(){ success.classList.remove('show'); },4000); }
+      });
+    };
+
+    // Cargar confirmaciones al iniciar y cada 30 segundos
+    fetchAndRender();
+    setInterval(fetchAndRender, 30000);
   })();
 
 </script>
