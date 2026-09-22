@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Elizabeth & Jafet · 05.12.26</title>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Boda EJ">
+<meta name="theme-color" content="#3A5F8A">
+<link rel="manifest" href="data:application/json;charset=utf-8,{%20%20%22name%22:%20%22Boda%20Elizabeth%20&%20Jafet%22,%20%20%22short_name%22:%20%22Boda%20EJ%22,%20%20%22description%22:%20%22Invitación%20de%20boda%20·%2005%20Diciembre%202026%22,%20%20%22start_url%22:%20%22.%22,%20%20%22display%22:%20%22standalone%22,%20%20%22background_color%22:%20%22#FFFFFF%22,%20%20%22theme_color%22:%20%22#3A5F8A%22,%20%20%22orientation%22:%20%22portrait%22,%20%20%22icons%22:%20[%20%20%20%20{%20%20%20%20%20%20%22src%22:%20%22data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3Crect%20width='512'%20height='512'%20rx='80'%20fill='%233A5F8A'/%3E%3Ccircle%20cx='256'%20cy='256'%20r='210'%20fill='none'%20stroke='%23D4AF37'%20stroke-width='8'/%3E%3Ctext%20x='256'%20y='310'%20font-family='Georgia,serif'%20font-size='180'%20font-style='italic'%20fill='%23D4AF37'%20text-anchor='middle'%3EEJ%3C/text%3E%3C/svg%3E%22,%20%20%20%20%20%20%22sizes%22:%20%22512x512%22,%20%20%20%20%20%20%22type%22:%20%22image/svg+xml%22,%20%20%20%20%20%20%22purpose%22:%20%22any%20maskable%22%20%20%20%20}%20%20]}">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='80' fill='%233A5F8A'/%3E%3Ccircle cx='256' cy='256' r='210' fill='none' stroke='%23D4AF37' stroke-width='8'/%3E%3Ctext x='256' y='310' font-family='Georgia,serif' font-size='180' font-style='italic' fill='%23D4AF37' text-anchor='middle'%3EEJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1349,12 +1356,233 @@
   }
   .rsvp-loading.show { display: block; }
 
+
+  /* ── Animaciones de entrada por sección ── */
+  .reveal          { opacity: 0; transition: opacity .7s ease, transform .7s cubic-bezier(.22,.68,0,1.1); }
+  .reveal-left     { transform: translateX(-40px); }
+  .reveal-right    { transform: translateX(40px); }
+  .reveal-up       { transform: translateY(40px); }
+  .reveal-zoom     { transform: scale(.92); }
+
+  .reveal.visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Stagger children del itinerario */
+  #itinerario .tl2-row {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.22,.68,0,1.1);
+  }
+  #itinerario.visible .tl2-row:nth-child(1)  { opacity:1; transform:none; transition-delay:.05s; }
+  #itinerario.visible .tl2-row:nth-child(2)  { opacity:1; transform:none; transition-delay:.12s; }
+  #itinerario.visible .tl2-row:nth-child(3)  { opacity:1; transform:none; transition-delay:.19s; }
+  #itinerario.visible .tl2-row:nth-child(4)  { opacity:1; transform:none; transition-delay:.26s; }
+  #itinerario.visible .tl2-row:nth-child(5)  { opacity:1; transform:none; transition-delay:.33s; }
+  #itinerario.visible .tl2-row:nth-child(6)  { opacity:1; transform:none; transition-delay:.40s; }
+  #itinerario.visible .tl2-row:nth-child(7)  { opacity:1; transform:none; transition-delay:.47s; }
+  #itinerario.visible .tl2-row:nth-child(8)  { opacity:1; transform:none; transition-delay:.54s; }
+
+  /* Stagger location cards */
+  #ubicaciones .location-card {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.22,.68,0,1.1);
+  }
+  #ubicaciones.visible .location-card:nth-child(1) { opacity:1; transform:none; transition-delay:.1s; }
+  #ubicaciones.visible .location-card:nth-child(2) { opacity:1; transform:none; transition-delay:.25s; }
+
+
+  /* ── Modo oscuro ── */
+  body.dark-mode {
+    background-color: #0D1117;
+    color: #E8E0D0;
+  }
+  body.dark-mode::before {
+    background:
+      radial-gradient(ellipse 140% 90% at 50%  0%,  rgba(30,45,70,.9) 0%, rgba(20,30,55,.7) 25%, transparent 75%),
+      radial-gradient(ellipse 100% 60% at 15% -5%,  rgba(25,40,65,.8) 0%, transparent 60%),
+      radial-gradient(ellipse  90% 55% at 85% -5%,  rgba(28,42,68,.7) 0%, transparent 58%);
+  }
+  body.dark-mode #cover {
+    background: linear-gradient(180deg, #1A2540 0%, #0D1117 60%);
+  }
+  body.dark-mode #splash {
+    background: radial-gradient(ellipse 140% 90% at 50% 0%, #1A2540 0%, #0D1117 80%);
+  }
+  body.dark-mode .cover-names,
+  body.dark-mode .tl2-name,
+  body.dark-mode .loc-type,
+  body.dark-mode .dresscode-subtitle,
+  body.dark-mode .tl-title,
+  body.dark-mode .rsvp-subtitle { color: #E8E0D0; }
+
+  body.dark-mode .cover-date,
+  body.dark-mode .verse-ref,
+  body.dark-mode .parents-div,
+  body.dark-mode .loc-name,
+  body.dark-mode .spotify-desc,
+  body.dark-mode .gallery-intro,
+  body.dark-mode .stack-hint { color: #9A9080; }
+
+  body.dark-mode .ornament { color: #D4AF37; opacity: .8; }
+  body.dark-mode .sec-label { color: #D4AF37; }
+
+  body.dark-mode .cd-unit {
+    background: rgba(212,175,55,.08);
+    border-color: rgba(212,175,55,.2);
+  }
+  body.dark-mode .cd-num { color: #D4AF37; }
+  body.dark-mode .cd-tag { color: #9A9080; }
+
+  body.dark-mode .location-card,
+  body.dark-mode .dresscode-box,
+  body.dark-mode .regalo-wrap,
+  body.dark-mode .salon-wrap {
+    background: rgba(255,255,255,.04);
+    border-color: rgba(255,255,255,.08);
+  }
+
+  body.dark-mode .cine-card { border-color: rgba(255,255,255,.1); }
+  body.dark-mode .spotify-wrap { border-color: rgba(255,255,255,.08); }
+
+  body.dark-mode .rsvp-field input,
+  body.dark-mode .rsvp-field select {
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.12);
+    color: #E8E0D0;
+  }
+  body.dark-mode .rsvp-field label { color: #D4AF37; }
+
+  body.dark-mode .parents-names { color: #E8E0D0; }
+  body.dark-mode .dc-text { color: #E8E0D0; }
+  body.dark-mode .regalo-text { color: #C8B89A; }
+
+  body.dark-mode .btn-map {
+    border-color: #D4AF37;
+    color: #D4AF37;
+  }
+  body.dark-mode .btn-map:hover { background: #D4AF37; color: #0D1117; }
+
+  body.dark-mode .salon-floor {
+    background: linear-gradient(135deg, #1A1E28 0%, #141820 100%);
+    border-color: rgba(212,175,55,.2);
+  }
+  body.dark-mode .mesa-circle { background: #1E2530; border-color: rgba(255,255,255,.15); }
+  body.dark-mode .mesa-name { color: #E8E0D0; }
+
+  /* Botón modo oscuro */
+  #darkToggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 998;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(58,79,107,.25);
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background .3s, border-color .3s, transform .2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,.10);
+  }
+  #darkToggle:hover  { transform: scale(1.08); }
+  #darkToggle:active { transform: scale(.93); }
+  body.dark-mode #darkToggle {
+    background: rgba(20,25,40,.85);
+    border-color: rgba(212,175,55,.3);
+  }
+
+
+  /* ── Banner PWA ── */
+  #pwa-banner {
+    display: none;
+    position: fixed;
+    bottom: 88px;
+    left: 16px;
+    right: 16px;
+    max-width: 448px;
+    margin: 0 auto;
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(58,79,107,.15);
+    border-radius: 16px;
+    padding: 14px 16px;
+    z-index: 997;
+    box-shadow: 0 8px 32px rgba(0,0,0,.12);
+    animation: slideUp .4s cubic-bezier(.22,.68,0,1.2);
+  }
+  body.dark-mode #pwa-banner {
+    background: rgba(20,25,40,.96);
+    border-color: rgba(212,175,55,.2);
+  }
+  #pwa-banner.show { display: flex; align-items: center; gap: 12px; }
+  .pwa-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 10px;
+    background: #3A5F8A;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #D4AF37;
+    font-weight: 700;
+  }
+  .pwa-text { flex: 1; }
+  .pwa-text strong {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1A2A3A;
+    margin-bottom: 2px;
+  }
+  body.dark-mode .pwa-text strong { color: #E8E0D0; }
+  .pwa-text span {
+    font-size: 11px;
+    color: #6B7280;
+    font-family: 'Inter', sans-serif;
+  }
+  .pwa-btn {
+    padding: 8px 14px;
+    background: #3A5F8A;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .pwa-close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+  @keyframes slideUp {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
 </style>
 </head>
 <body>
 
 <!-- ── SPLASH ── -->
 <div id="petals-canvas"></div>
+<button id="darkToggle" aria-label="Modo oscuro" title="Cambiar tema">🌙</button>
 <div id="splash">
   <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="70" cy="70" r="64" stroke="#6B8AAE" stroke-width="0.6" opacity="0.4"/>
@@ -1429,7 +1657,7 @@
 
   <!-- 4 · ITINERARIO -->
   <div class="ornament reveal">— ✦ —</div>
-  <section id="inspiracion" class="reveal">
+  <section id="inspiracion" class="reveal reveal-left">
 
     <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;font-weight:600;color:#1A2A3A;text-align:center;margin-bottom:32px;line-height:1.4;">
       Con la bendición de nuestros padres
@@ -1472,7 +1700,7 @@
   </section>
 
   <div class="ornament reveal">— ✦ —</div>
-  <section id="ubicaciones" class="reveal">
+  <section id="ubicaciones" class="reveal reveal-right">
 
     <div class="location-card">
       <p class="loc-time">16:00 hrs</p>
@@ -1519,7 +1747,7 @@
 
 
   <div class="ornament reveal">— ✦ —</div>
-  <section id="itinerario" class="reveal">
+  <section id="itinerario" class="reveal reveal-left">
     <h2 class="tl-title">Itinerario</h2>
 
     <div class="tl2">
@@ -1620,7 +1848,7 @@
 
   <!-- 5 · NUESTRAS FOTOS -->
   <div class="ornament reveal">— ✦ —</div>
-  <section id="fotos" class="reveal">
+  <section id="fotos" class="reveal reveal-up">
     <p class="sec-label">Nuestras Fotos</p>
     <p class="gallery-intro">Momentos que guardaremos para siempre</p>
     <div class="cine-track-wrap">
@@ -1649,7 +1877,7 @@
 
   <!-- DRESS CODE -->
   <div class="ornament reveal">— ✦ —</div>
-  <section id="dresscode" class="reveal">
+  <section id="dresscode" class="reveal reveal-right">
     <p class="sec-label">Dress Code</p>
     <p class="dresscode-subtitle">Estricto formal</p>
     <div class="dresscode-box">
@@ -1667,7 +1895,7 @@
 
   <!-- SPOTIFY -->
   <div class="ornament reveal">— ✦ —</div>
-  <section id="canciones" class="reveal">
+  <section id="canciones" class="reveal reveal-up">
     <p class="sec-label">Nuestra Música</p>
     <p class="spotify-desc">Las canciones que cuentan nuestra historia</p>
     <div class="spotify-wrap">
@@ -1699,7 +1927,7 @@
 
   <!-- RSVP -->
   <div class="ornament reveal">— ✦ —</div>
-  <section id="rsvp" class="reveal">
+  <section id="rsvp" class="reveal reveal-left">
     <p class="sec-label">Confirmación de Asistencia</p>
     <p class="rsvp-subtitle">Tu presencia es nuestro mayor regalo</p>
 
@@ -1768,6 +1996,18 @@
   </button>
 </div>
 
+
+<!-- Banner PWA -->
+<div id="pwa-banner">
+  <div class="pwa-icon">EJ</div>
+  <div class="pwa-text">
+    <strong>Agregar a inicio</strong>
+    <span>Accede rápido a la invitación</span>
+  </div>
+  <button class="pwa-btn" id="pwaInstall">Agregar</button>
+  <button class="pwa-close" id="pwaDismiss">✕</button>
+</div>
+
 </main>
 
 
@@ -1833,11 +2073,7 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer  = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
+  // Reveal handled by animation JS below
 
   /* ── Cinematic carousel ── */
   (function(){
@@ -2229,6 +2465,100 @@
     // Cargar confirmaciones al iniciar y cada 30 segundos
     fetchAndRender();
     setInterval(fetchAndRender, 30000);
+  })();
+
+  /* ── Modo oscuro ── */
+  (function(){
+    var btn  = document.getElementById('darkToggle');
+    var body = document.body;
+    var dark = localStorage.getItem('bodaEJ_dark') === '1';
+
+    function applyDark(d){
+      body.classList.toggle('dark-mode', d);
+      if(btn) btn.textContent = d ? '☀️' : '🌙';
+      localStorage.setItem('bodaEJ_dark', d ? '1' : '0');
+    }
+
+    applyDark(dark);
+    if(btn) btn.addEventListener('click', function(){ applyDark(!body.classList.contains('dark-mode')); });
+  })();
+
+  /* ── Animaciones de scroll mejoradas ── */
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    var io  = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* ── PWA / Agregar a pantalla de inicio ── */
+  (function(){
+    var deferredPrompt = null;
+    var banner  = document.getElementById('pwa-banner');
+    var btnInst = document.getElementById('pwaInstall');
+    var btnDism = document.getElementById('pwaDismiss');
+
+    // Evento nativo de Chrome/Android
+    window.addEventListener('beforeinstallprompt', function(e){
+      e.preventDefault();
+      deferredPrompt = e;
+      // Mostrar banner después de 8 segundos
+      setTimeout(function(){
+        if(banner && !localStorage.getItem('bodaEJ_pwa_dismissed')){
+          banner.classList.add('show');
+        }
+      }, 8000);
+    });
+
+    if(btnInst){
+      btnInst.addEventListener('click', function(){
+        if(deferredPrompt){
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(function(){
+            deferredPrompt = null;
+            if(banner) banner.classList.remove('show');
+          });
+        } else {
+          // iOS Safari — mostrar instrucciones
+          showIOSInstructions();
+        }
+      });
+    }
+
+    if(btnDism){
+      btnDism.addEventListener('click', function(){
+        if(banner) banner.classList.remove('show');
+        localStorage.setItem('bodaEJ_pwa_dismissed', '1');
+      });
+    }
+
+    // iOS: mostrar banner manualmente si no hay prompt nativo
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    var isStandalone = window.navigator.standalone;
+    if(isIOS && !isStandalone && !localStorage.getItem('bodaEJ_pwa_dismissed')){
+      setTimeout(function(){
+        if(banner) banner.classList.add('show');
+      }, 8000);
+    }
+
+    function showIOSInstructions(){
+      var msg = '📲 Para agregar a tu pantalla de inicio:\n\n' +
+                '1. Toca el botón de compartir (□↑) en Safari\n' +
+                '2. Selecciona "Agregar a pantalla de inicio"\n' +
+                '3. Toca "Agregar"';
+      alert(msg);
+    }
+
+    // Detectar si ya está instalada
+    window.addEventListener('appinstalled', function(){
+      if(banner) banner.classList.remove('show');
+    });
   })();
 
 </script>
