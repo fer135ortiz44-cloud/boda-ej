@@ -1365,6 +1365,23 @@
     <path d="M70 132 L73 126 L70 128 L67 126 Z" fill="#6B8AAE" opacity="0.6"/>
   </svg>
   <p class="splash-text">Elizabeth &amp; Jafet</p>
+  <button id="splashEnter" style="
+    margin-top: 32px;
+    padding: 13px 36px;
+    background: transparent;
+    border: 1.5px solid rgba(58,79,107,.4);
+    border-radius: 40px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #3A4F6B;
+    cursor: pointer;
+    letter-spacing: .08em;
+    animation: fadeUp 1s ease 2.2s both;
+    transition: background .2s, color .2s;
+  ">
+    ♪ Abrir invitación
+  </button>
 </div>
 
 <!-- ── MAIN ── -->
@@ -1799,7 +1816,10 @@
 
 <script>
   window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('splash').classList.add('hidden'), 2400);
+    // Solo auto-ocultar si el usuario no lo controla manualmente con el botón
+    if (!window._splashManual) {
+      document.getElementById('splash').classList.add('hidden');
+    }
   });
 
   function updateCountdown() {
@@ -1905,29 +1925,49 @@
 
   /* ── Música de fondo ── */
   (function(){
-    const music = document.getElementById('bgMusic');
+    var music  = document.getElementById('bgMusic');
+    var splash = document.getElementById('splash');
+    var btn    = document.getElementById('splashEnter');
     if (!music) return;
-    let started = false;
-    function startMusic(){
-      if (started) return;
-      started = true;
-      music.volume = 0.18;
-      music.play().catch(()=>{});
-    }
-    // Inicia al primer toque/click del usuario
-    document.addEventListener('touchstart', startMusic, {once:true, passive:true});
-    document.addEventListener('click',      startMusic, {once:true});
 
-    // Botón de spotify flotante — pausa/reanuda música al abrir player
-    const spBtn = document.getElementById('spotify-toggle');
-    if (spBtn) {
-      spBtn.addEventListener('click', () => {
-        const panel = document.getElementById('spotify-panel');
-        if (panel?.classList.contains('open')) {
-          music.volume = 0.06; // baja al abrir spotify
-        } else {
-          music.volume = 0.18;
-        }
+    function startMusicAndEnter(){
+      // Reproducir música — garantizado porque es dentro de un click/tap del usuario
+      music.volume = 0.18;
+      music.play().catch(function(){});
+      // Ocultar splash
+      if(splash){
+        splash.style.transition = 'opacity .8s ease';
+        splash.style.opacity = '0';
+        setTimeout(function(){ splash.classList.add('hidden'); }, 800);
+      }
+    }
+
+    // Botón principal del splash
+    if(btn){
+      btn.addEventListener('click', startMusicAndEnter);
+      btn.addEventListener('touchend', function(e){
+        e.preventDefault();
+        startMusicAndEnter();
+      });
+    }
+
+    // También al tocar cualquier parte del splash (fallback)
+    if(splash){
+      splash.addEventListener('click', function(e){
+        if(e.target !== btn) startMusicAndEnter();
+      });
+    }
+
+    // Cancelar el auto-hide del splash que teníamos antes
+    // (ahora lo controla el botón)
+    window._splashManual = true;
+
+    // Bajar volumen al abrir Spotify
+    var spBtn = document.getElementById('spotify-toggle');
+    if(spBtn){
+      spBtn.addEventListener('click', function(){
+        var panel = document.getElementById('spotify-panel');
+        music.volume = (panel && panel.classList.contains('open')) ? 0.18 : 0.06;
       });
     }
   })();
